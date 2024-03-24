@@ -6,3 +6,5 @@ arrayName.join(element)\
 arrayName.at(positionNb)\
 Math.abs(value)\
 arrName.forEach(function (currentEl, currentindex, entireArray){})\
+mapName.forEach(function (currentEl, currentindex, entireMap){})\
+setName.forEach(function (currentEl, \_, entireSet){})\

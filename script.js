@@ -75,18 +75,34 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+////////////////////////FOR EACH WITH MAPS AND SETS/////////////////////////
+// in this case we use for Each the same way as on an array
+//map
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+//set
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+// the thng is key and map are the same but it was kept this way for consistency
+// so we put the throwaway variable _ instead of key
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
+});
+
 ////////////////////////LOOPING ARRAYS FOR EACH/////////////////////////
 // loops over th and execute the callback function at each iteration
 // it also passes the current element of the array as an argument
 // for each element of th array, apply the callback function
 // there is no break statment meaning it must go until the end
-movements.forEach(function(mov, i, arr){
-  if (mov > 0){
-    console.log(`Movement ${i+1} u depositied ${mov}`);
-  }else{
-    console.log(`Movement ${i+1} u withdrew ${Math.abs(mov)}`);
-  }
-}
+// movements.forEach(function(mov, i, arr){
+//   if (mov > 0){
+//     console.log(`Movement ${i+1} u depositied ${mov}`);
+//   }else{
+//     console.log(`Movement ${i+1} u withdrew ${Math.abs(mov)}`);
+//   }
+// }
 
 ////////////////////////SIMPLE ARRAY METHODS/////////////////////////
 
