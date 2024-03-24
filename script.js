@@ -77,44 +77,52 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ////////////////////////SIMPLE ARRAY METHODS/////////////////////////
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 
-// SLICE
-//return a copy of the array but only the extracted parts
-arr.slice(2);
-arr.slice(2, 4);
-// takes the last 2 elements of the array
-arr.slice(-2);
-// takes from 1 except the last 2
-arr.slice(1, -2);
-// make a shallow copy
-arr.slice();
+// // SLICE
+// //return a copy of the array but only the extracted parts
+// arr.slice(2);
+// arr.slice(2, 4);
+// // takes the last 2 elements of the array
+// arr.slice(-2);
+// // takes from 1 except the last 2
+// arr.slice(1, -2);
+// // make a shallow copy
+// arr.slice();
 
-//SPLICE
-// works like slice but changes the original array
-// splice is most ussefull for removing elements from an array
-arr.splice(2);
-arr.splice(2, 4);
-// takes the last 2 elements of the array
-arr.splice(-2);
-// takes from 1 except the last 2
-arr.splice(1, -2);
-// make a shallow copy
-arr.splice();
+// //SPLICE
+// // works like slice but changes the original array
+// // splice is most ussefull for removing elements from an array
+// arr.splice(2);
+// arr.splice(2, 4);
+// // takes the last 2 elements of the array
+// arr.splice(-2);
+// // takes from 1 except the last 2
+// arr.splice(1, -2);
+// // make a shallow copy
+// arr.splice();
 
-// REVERSE
-// mutates the original array
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
-arr2.reverse();
+// // REVERSE
+// // mutates the original array
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// arr2.reverse();
 
-// CONCAT
-// cocatanate the arrays but does not mutate the original array
-arr.concat(arr2);
-// same as
-[...arr, ...arr2];
+// // CONCAT
+// // cocatanate the arrays but does not mutate the original array
+// arr.concat(arr2);
+// // same as
+// [...arr, ...arr2];
 
-// JOIN
-// joins the elements of an array a certain way
-// here we add - between each elements
-arr.join(' - ');
+// // JOIN
+// // joins the elements of an array a certain way
+// // here we add - between each elements
+// arr.join(' - ');
+
+////////////////////////THE NEW AT METHOD/////////////////////////
+const arr = [23, 11, 64];
+// specifies the index position of an array
+// it is good for method chaining
+arr[0];
+arr.at(0);
+arr.at(-1); // last element of the array
