@@ -75,6 +75,19 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+////////////////////////LOOPING ARRAYS FOR EACH/////////////////////////
+// loops over th and execute the callback function at each iteration
+// it also passes the current element of the array as an argument
+// for each element of th array, apply the callback function
+// there is no break statment meaning it must go until the end
+movements.forEach(function(mov, i, arr){
+  if (mov > 0){
+    console.log(`Movement ${i+1} u depositied ${mov}`);
+  }else{
+    console.log(`Movement ${i+1} u withdrew ${Math.abs(mov)}`);
+  }
+}
+
 ////////////////////////SIMPLE ARRAY METHODS/////////////////////////
 
 // let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -120,9 +133,9 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // arr.join(' - ');
 
 ////////////////////////THE NEW AT METHOD/////////////////////////
-const arr = [23, 11, 64];
-// specifies the index position of an array
-// it is good for method chaining
-arr[0];
-arr.at(0);
-arr.at(-1); // last element of the array
+// const arr = [23, 11, 64];
+// // specifies the index position of an array
+// // it is good for method chaining
+// arr[0];
+// arr.at(0);
+// arr.at(-1); // last element of the array
