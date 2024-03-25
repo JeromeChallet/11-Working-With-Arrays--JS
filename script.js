@@ -45,6 +45,7 @@ const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
+// contains all the movements to been seen in teh DOM
 const containerMovements = document.querySelector('.movements');
 
 const btnLogin = document.querySelector('.login__btn');
@@ -60,6 +61,33 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+/////////////////////CREATING DOM ELEMENTS/////////////////////
+// receives the data with which it should actually work
+// receives one array of movement and works with that data
+const displayMovements = function (movements) {
+  // innerHTML is similar to text content here
+  // .textContent = 0
+  // but innerHTML returns everything including the tags
+  containerMovements.innerHTML = '';
+  //console.log(containerMovements.innerHTML);
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>`;
+    // inserts a string of HTML and insert it into HTML DOM
+    // afterbegin inserts the new child element right after the begining of the element
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
