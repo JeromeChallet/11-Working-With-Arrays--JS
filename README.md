@@ -11,3 +11,5 @@ setName.forEach(function (currentEl, \_, entireSet){})\
 varName.insertAdjacentHTML('HTMLPosAttchementString', 'StringToInsert')\
 varName.innerHTML\
 arrName.map(function(currentEl){...})\
+(arrName.map = currentEl => currentEl \* outsideVar)\
+const username = user.toLowerCase().split(' ').map(name => name[0]).join('');\

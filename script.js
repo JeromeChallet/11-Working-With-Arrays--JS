@@ -125,6 +125,24 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+////////////////////////COMPUTING USERNAMES/////////////////////////
+const user = 'Steven Thomas Williams'; //stw
+// using the map method to do extract teh initials of each name
+//we need to split the string into mutiple words
+// next we loop over teh account array to replace the original with the username with forEach
+const createUsernamaes = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+    return username;
+  });
+};
+
+createUsernamaes(accounts);
+
 ////////////////////////FOR EACH WITH MAPS AND SETS/////////////////////////
 // in this case we use for Each the same way as on an array
 //map
