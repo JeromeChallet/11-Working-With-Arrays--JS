@@ -10,3 +10,4 @@ mapName.forEach(function (currentEl, currentindex, entireMap){})\
 setName.forEach(function (currentEl, \_, entireSet){})\
 varName.insertAdjacentHTML('HTMLPosAttchementString', 'StringToInsert')\
 varName.innerHTML\
+arrName.map(function(currentEl){...})\
