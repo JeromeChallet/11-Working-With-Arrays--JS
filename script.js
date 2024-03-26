@@ -62,6 +62,42 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+/////////////////////THE MAP METHOD/////////////////////
+// the map method returns a brand new array
+// we convert the movements from EUR to USD
+const eurToUsd = 1.1;
+
+// each iteration of the array is replaced by what is inside the {}
+// this inline with functional programming
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+//same as above but with an arrow function
+const movementsUSD = (movements.map = mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+// this inline with imperative programming, controlling each step
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+const movementsDescription = movements.map((mov, i) => {
+  `Movement ${i + 1} u ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`;
+});
+
+console.log(movementsDescription);
+
 /////////////////////CREATING DOM ELEMENTS/////////////////////
 // receives the data with which it should actually work
 // receives one array of movement and works with that data
@@ -88,20 +124,6 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
 
 ////////////////////////FOR EACH WITH MAPS AND SETS/////////////////////////
 // in this case we use for Each the same way as on an array
