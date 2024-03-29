@@ -87,13 +87,13 @@ const displayMovements = function (movements) {
   });
 };
 
+displayMovements(account1.movements);
+// Calculate and Display the balance
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} EUR`;
 };
-calcDisplayBalance();
-
-displayMovements(account1.movements);
+calcDisplayBalance(account1.movements);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -133,6 +133,12 @@ const balance = movements.reduce((acc, cur) => acc + cur, 0); // that 0 is the s
 let balance2 = 0;
 for (const mov of movements) sum += mov;
 console.log(balance2);
+
+//Maximum Value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
 
 ////////////////////////THE FILTER METHOD/////////////////////////
 // filter for elements using a callback function
