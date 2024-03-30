@@ -130,6 +130,13 @@ const createUsernames = function (accs) {
 
 createUsernames(account1.movements);
 
+/////////////////////THE FIND METHOD/////////////////////
+// returns one element of an array based on a condition
+// it returns the original element not an array
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+const account = accounts.find(acc => acc.owner === 'Jessiace Davis');
+
 /////////////////////////////////////////////////
 // LECTURES
 
