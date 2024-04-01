@@ -16,3 +16,5 @@ const username = user.toLowerCase().split(' ').map(name => name[0]).join('');\
 arrName.filter(function(currentEl){..callback filtering function..})\
 arrName.reduce(function(Accumulator, currentEl, index, array){..callback filtering function..})\
 arrName.find(objName => objName.field === 'string')\
+preventDefault();\
+HTMLElement.blur();
