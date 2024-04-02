@@ -18,3 +18,4 @@ arrName.reduce(function(Accumulator, currentEl, index, array){..callback filteri
 arrName.find(objName => objName.field === 'string')\
 preventDefault();\
 HTMLElement.blur();
+obj.findINdex()\
