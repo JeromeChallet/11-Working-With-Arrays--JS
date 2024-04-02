@@ -19,3 +19,9 @@ arrName.find(objName => objName.field === 'string')\
 preventDefault();\
 HTMLElement.blur();
 obj.findINdex()\
+arrName.some(condition)\
+arrName.every(condition)\
+const varName = param => condition;\
+console.log(arrName.some(varName));\
+console.log(arrName.every(varName));\
+console.log(arrName.filter(varName));\
