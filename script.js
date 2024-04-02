@@ -162,6 +162,36 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+/////////////////////SOME AND EVERY METHOD/////////////////////
+// some method
+// it's like conditional if else statement
+const anyDeposits = movements.some(mov => mov > 0);
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault;
+
+  const amount = Number(inputLoanAmount.value);
+
+  // loan is given if the curren account amount has at least 10% of the asked amount
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount / 10)) {
+    // add movement
+    currentAccount.movements.push(amount);
+    // update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
+// every method
+// returns true only is all teh elements in the array satisfy the condition
+console.log(movements.every(mov => mov > 0));
+
+// separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit)); // true
+console.log(movements.every(deposit)); // false
+console.log(movements.filter(deposit)); // array that satisfy the condition
+
 /////////////////////FINDINDEX METHOD/////////////////////
 // returns the index of found element and not the element itself
 // to delete an element with the splice method we need to know its position first using findIndex
