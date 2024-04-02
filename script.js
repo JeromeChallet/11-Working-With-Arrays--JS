@@ -162,6 +162,30 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+/////////////////////FINDINDEX METHOD/////////////////////
+// returns the index of found element and not the element itself
+// to delete an element with the splice method we need to know its position first using findIndex
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    // with indexOf we can only search for the value that is in the array
+    // with indexOf we can create a complex if condition
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    // delete account
+    accounts.splice(index, 1);
+
+    // hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
 /////////////////////IMPLEMENTING TRANSFERS/////////////////////
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
