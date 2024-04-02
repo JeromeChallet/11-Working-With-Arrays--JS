@@ -192,6 +192,30 @@ console.log(movements.some(deposit)); // true
 console.log(movements.every(deposit)); // false
 console.log(movements.filter(deposit)); // array that satisfy the condition
 
+/////////////////////FLAT & FLATMAP/////////////////////
+// flattens the arrays into one but only goes one level deep
+const arr2 = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr2.flat()); // [1,2,3,4,5,6,7,8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2)); // [1,2,3,4,5,6,7,8]
+
+// new array for all the accounts that only contains the movements array
+//const accountMovements = accounts.map(acc => acc.movements);
+//const allMovements = accountMovements.flat();
+// add up all the values from all the allMovements
+//const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+// flat map combines the flat and map method at the same time
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+
 /////////////////////FINDINDEX METHOD/////////////////////
 // returns the index of found element and not the element itself
 // to delete an element with the splice method we need to know its position first using findIndex

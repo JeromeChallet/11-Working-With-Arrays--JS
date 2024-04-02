@@ -25,3 +25,4 @@ const varName = param => condition;\
 console.log(arrName.some(varName));\
 console.log(arrName.every(varName));\
 console.log(arrName.filter(varName));\
+arrName.flat(depthlevelnb);\
