@@ -445,3 +445,5 @@ console.log(movements);
 //  same as above
 movements.sort((a, b) => a - b);
 console.log(movements); // assending order
+
+/////////////////////MORE WAYS OF CREATING AND FILLING ARRAYS/////////////////////
