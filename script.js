@@ -65,14 +65,19 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////CREATING DOM ELEMENTS/////////////////////
 // receives the data with which it should actually work
 // receives one array of movement and works with that data
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   // innerHTML is similar to text content here
   // .textContent = 0
   // but innerHTML returns everything including the tags
   containerMovements.innerHTML = '';
   //console.log(containerMovements.innerHTML);
 
-  movements.forEach(function (mov, i) {
+  // if sort is true then sort the movements values
+  // we sue slice to make sure we do not mutate the original array
+  // if the movemetns values are out of order we sort them if not then jsut movements given back
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
     <div class="movements__row">
@@ -267,6 +272,13 @@ const firstWithdrawal = movements.find(mov => mov < 0);
 
 const account = accounts.find(acc => acc.owner === 'Jessiace Davis');
 
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////
 // LECTURES
 
@@ -414,3 +426,22 @@ currenciesUnique.forEach(function (value, _, map) {
 // arr[0];
 // arr.at(0);
 // arr.at(-1); // last element of the array
+
+/////////////////////SORTING ARRAY/////////////////////
+// mutates the original array
+const owners = ['jerome', 'john', 'smith', 'sam'];
+console.log(owners.sort()); // sorts the order from a to z
+
+// automatically converts to string then do the sorting
+// to fix this we use a compare callback function into the method
+console.log(movements);
+// if return < 0, a before b (keep order)
+// if return > 0, b before a (switch order)
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+// if a < b then we want to return something negative therefore a - b is the same
+//   if (a < b) return -1;
+// });
+//  same as above
+movements.sort((a, b) => a - b);
+console.log(movements); // assending order
