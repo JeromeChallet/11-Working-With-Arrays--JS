@@ -28,3 +28,6 @@ console.log(arrName.filter(varName));\
 arrName.flat(depthlevelnb);\
 arrName.sort()\
 arrName.sort((curentValue, nextValue) => {})\
+new Array(value)\
+arrName.fill(value, indexValueStart, indexValueEnd)\
+Array.name({length: 7} (currentElement, index) => 1)

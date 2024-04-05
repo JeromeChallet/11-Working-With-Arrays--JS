@@ -445,3 +445,47 @@ console.log(movements);
 //  same as above
 movements.sort((a, b) => a - b);
 console.log(movements); // assending order
+
+/////////////////////CREATING AND FILLING ARRAYS/////////////////////
+// define an array programatically
+// creates an array with 7 empty elements in them but we cant use the map method
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const x = new Array(7);
+// same as above but we can use maps
+x.map(() => 5);
+
+// fill
+// mutates the original array
+// assigns the value of 1 to each element in the array from the index 3
+x.fill(1, 3, 5);
+
+arr.fill(23, 4, 6);
+
+// Array.from
+// from allows u to recreate an array programmatically
+// from() is not a mehtod used on the array but we on the array constructor
+// first pass an object with a length property thena callback function
+const y = Array.from({ length: 7 }, () => 1);
+
+// _ is a throwaway variable
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+
+// 100 random dice roll
+const d = Array.from(
+  { length: 100 },
+  (_, i) => i + (Math.floor(Math.random() * 6) + 1)
+);
+
+// strings maps or sets are called iterables that can be converted to real arrays using Array.from
+// we can create arrays from out of things
+
+// querySelectorAll() returns a node list
+// in order to be able to use array methods on a node list we must first convert it to an array
+
+labelBalance.addEventListener('click', function () {
+  // now that movementsUI is a real array we can use the map method
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements_value'),
+    el => Number(el.textContent.replace('€', ''))
+  );
+});
