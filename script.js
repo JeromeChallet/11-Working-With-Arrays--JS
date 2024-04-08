@@ -489,3 +489,23 @@ labelBalance.addEventListener('click', function () {
     el => Number(el.textContent.replace('€', ''))
   );
 });
+
+/////////////////////ARRAY METHOD PRACTICE/////////////////////
+// sum of all the deposited amount with one big array
+const bankDepositSum = accounts
+  .flatMap((acc = acc.movements))
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum * cur, 0);
+
+// how many deposit of at least 1000$
+const numDeposits1000 = accounts
+  // .flatMap(acc => acc.movements)
+  // .filter(mov => mov >= 1000).length;
+  .flatMap(acc => acc.movements)
+  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+  // prefix operator ++
+  let a = 10;
+  console.log(++0); //11
+  console.log(a); // 11
