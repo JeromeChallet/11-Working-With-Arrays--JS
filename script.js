@@ -489,3 +489,39 @@ labelBalance.addEventListener('click', function () {
     el => Number(el.textContent.replace('€', ''))
   );
 });
+
+/////////////////////ARRAY METHOD PRACTICE/////////////////////
+// sum of all the deposited amount with one big array
+const bankDepositSum = accounts
+  .flatMap((acc = acc.movements))
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum * cur, 0);
+
+// how many deposit of at least 1000$
+const numDeposits1000 = accounts
+  // .flatMap(acc => acc.movements)
+  // .filter(mov => mov >= 1000).length;
+  .flatMap(acc => acc.movements)
+  // .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+
+  // prefix operator ++
+  let a = 10;
+  console.log(++0); //11
+console.log(a); // 11
+  
+// create an obj containing the sum of the deposits and withdrawal
+const sums = accounts.flatMap(acc => acc.movements).reduce((sums, cur) => {
+  //cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+  sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+  return sums;
+}, {deposits: 0, withdrawals:0})
+
+// func to convert any string to a title case
+const convertTitleCase = function (title) {
+const capitalize = str =>  str[0].toUpperCase()+word.slice(1)
+
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const titleCase = title.toLowerCase().split(' ').map(word=> exceptions.includes(word) ? word : capitalize(word));
+  return capitalize(titleCase);
+}
