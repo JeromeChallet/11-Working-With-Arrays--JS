@@ -508,4 +508,20 @@ const numDeposits1000 = accounts
   // prefix operator ++
   let a = 10;
   console.log(++0); //11
-  console.log(a); // 11
+console.log(a); // 11
+  
+// create an obj containing the sum of the deposits and withdrawal
+const sums = accounts.flatMap(acc => acc.movements).reduce((sums, cur) => {
+  //cur > 0 ? sums.deposits += cur : sums.withdrawals += cur;
+  sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+  return sums;
+}, {deposits: 0, withdrawals:0})
+
+// func to convert any string to a title case
+const convertTitleCase = function (title) {
+const capitalize = str =>  str[0].toUpperCase()+word.slice(1)
+
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const titleCase = title.toLowerCase().split(' ').map(word=> exceptions.includes(word) ? word : capitalize(word));
+  return capitalize(titleCase);
+}
